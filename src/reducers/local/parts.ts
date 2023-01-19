@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux';
-import { DECREMENT_PART, INCREMENT_PART } from '../../actions/parts';
+import { DECREMENT_PART, INCREMENT_PART, ADD_PART } from '../../actions/parts';
 
 // import { v4 as uuid } from 'uuid';
 
@@ -25,16 +25,24 @@ const initialState = [
 const schoolsReducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
     case INCREMENT_PART: {
-      const idx = state.findIndex(part => part.name === action.partName);
-      state[idx].amount += 1;
-      return state;
+      const newState = state.map(item =>
+        item.name === action.partName
+          ? { ...item, amount: item.amount + 1 }
+          : item
+      );
+      return newState;
     }
     case DECREMENT_PART: {
-      const idx = state.findIndex(part => part.name === action.partName);
-      state[idx].amount -= 1;
-      return state;
+      const newState = state.map(item =>
+        item.name === action.partName
+          ? { ...item, amount: Math.max(item.amount - 1, 0) }
+          : item
+      );
+      return newState;
     }
-
+    case ADD_PART: {
+      return [...state, { name: action.partName, amount: 0 }];
+    }
     default:
       return state;
   }

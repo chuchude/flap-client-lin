@@ -46,7 +46,7 @@ module.exports = function generateConfig(options) {
       ],
     },
     devServer: {
-      port: 8080,
+      port: 9000,
       static: {
         directory: 'build',
       },
