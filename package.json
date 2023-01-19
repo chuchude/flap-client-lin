@@ -1,8 +1,8 @@
 {
-  "name": "flap-client",
+  "name": "flap-client-lin",
   "version": "1.0.0",
   "description": "Intentionally bad react-app for front-end assessment. Pairs with Flap",
-  "homepage": "http://{username}.github.io/{repo-name}",
+  "homepage":"https://chuchude.github.io/flap-client-lin",
   "scripts": {
     "test": "jest",
     "dev": "webpack-dev-server --hot --history-api-fallback --host 0.0.0.0",
@@ -11,7 +11,7 @@
     "format": "prettier --write \"src/**/*.{js,ts,tsx}\"",
     "prettier-check": "prettier --check src/**/*.{js,ts,tsx}",
     "lint": "yarn prettier-check && yarn tsc-check && yarn eslint",
-    "build": "webpack --env repo_name={repo-name}",
+    "build": "webpack --env repo_name=flap-client-lin",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
