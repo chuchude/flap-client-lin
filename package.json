@@ -11,7 +11,7 @@
     "format": "prettier --write \"src/**/*.{js,ts,tsx}\"",
     "prettier-check": "prettier --check src/**/*.{js,ts,tsx}",
     "lint": "yarn prettier-check && yarn tsc-check && yarn eslint",
-    "build": "webpack --env repo_name=flap-client-lin",
+    "build": "webpack --env repo_name='flap-client-lin'",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
